@@ -1,1 +1,726 @@
-<h>Welcome!</h>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="AI-Press">
+  <meta name="keywords" content="Multi-Agent, Feedback Simulation, LLM, Press Release Generating">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI-Press: A Multi-Agent News Generating and Feedback Simulation System Powered by Large Language Models</title>
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<!-- <meta name="generator" content="Jekyll v3.9.3" /> -->
+<meta property="og:title" content="AI-Press: A Multi-Agent News Generating and Feedback Simulation System Powered by Large Language Models" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://wwxc2001.github.io/" />
+<meta property="og:url" content="https://wwxc2001.github.io/" />
+<meta property="og:site_name" content="AI-Press: A Multi-Agent News Generating and Feedback Simulation System Powered by Large Language Models" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://llm-misinformation.github.io/static/images/logo.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="AI-Press: A Multi-Agent News Generating and Feedback Simulation System Powered by Large Language Models" />
+<meta name="twitter:description" content="AI-Press: A Multi-Agent News Generating and Feedback Simulation System Powered by Large Language Models" />
+<meta name="twitter:site" content="@CanyuChen3" />
+<meta name="twitter:image" content="https://llm-misinformation.github.io/static/images/logo.png" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","headline":"AI-Press","name":"AI-Press","url":"https://wwxc2001.github.io/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon_transparent2.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <style>
+    .grey-box {
+        background-color: #c0c0c0; /* Grey color */
+        color: rgb(70, 70, 70); /* White text color */
+        padding: 20px; /* Padding inside the box */
+        margin: 20px; /* Margin outside the box */
+        text-align: center; /* Center the text */
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="http://www.fudan-disc.com/">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Rearch
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://alarm-fdu.github.io/">
+              ⏰ALaRM
+            </a>
+            <a class="navbar-item" href="https://xymou.github.io/social_simulation/">
+              🙌Unveiling the Truth and Facilitating Change
+            </a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </nav>
+  
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 id="AI-Press: A Multi-Agent News Generating and Feedback Simulation System Powered by Large Language Models" class="title is-2 publication-title">AI-Press: A Multi-Agent News Generating and Feedback Simulation System Powered by Large Language Models</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://lishi905.github.io/">Xiawei Liu</a><sup>1*</sup>,</span>
+              <span class="author-block">
+                <a href="https://haoyuk.github.io/">Shiyue Yang</a><sup>1*</sup>,</span>
+              <span class="author-block">
+                <a href="https://xymou.github.io/">Xinyi Mou</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://brucelyu17.github.io/">Hanjia Lyu</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="http://www.fudan-disc.com/people">Kun Wu</a><sup>1</sup>,
+              </span>
+              <br/>
+              <span class="author-block">
+                <a href="http://simingchen.me/">Siming Chen</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.cs.rochester.edu/u/jluo/">Jiebo Luo</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://nlp.fudan.edu.cn/28702/list.htm">Xuanjing Huang</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="http://www.fudan-disc.com/people/zywei">Zhongyu Wei</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Fudan University,</span>
+              <span class="author-block"><sup>2</sup>University of Rochester</span>
+            </div>
+            <div class="is-size-6 publication-authors">
+              <span class="author-block">* Equal contribution</span>
+            </div>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2402.13022.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2402.13022" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/Lishi905/SoMeLVLM"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                    </a>
+                </span>
+                <span class="link-block">
+                  <a href="http://210.16.188.56:60033/"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fa fa-play-circle"></i>
+                    </span>
+                    <span>Demo</span>
+                    </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://huggingface.co/Lishi0905/SoMeLVLM"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fas fa-folder"></i>
+                    </span>
+                    <span>Model</span>
+                    </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="columns is-centered"> -->
+            <!-- <img style='height: auto; width: 50%; object-fit: contain' src="static/images/f1.png"
+              alt="overview_image"> -->
+      <figure>
+        <img src="static/images/f2.jpg"  alt="survey" >
+      </figure>
+      <div style="text-align:center">
+      <div class="content has-text-justified">
+        <p><i><b>An illustration of Our AI-Press System Framework.</b> To highlight `human-in-the-loop' in the news flow, we adopt a modularized workflow instead of an end-to-end one.Among the three modules, the <b>Press Drafting Module</b> is designed for the collection and coarse-grained processing of news material and information, the <b>Press Polishing Module</b> aims at the fine-grained processing of news content, and the <b>Simulation Module</b> simulates the process of publishing and feedback. </i></p>
+      </div>
+      </div>
+          <!-- </div>
+        </div>
+      </div>  -->
+    </div>
+    <br>    <br>
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Background</h2>
+          <div class="content has-text-justified">
+              <p>
+              The rise of various social platforms has transformed journalism. The growing demand for news content has led to the increased use of large language models (LLMs) in news production due to their speed and cost-effectiveness.
+              </p>
+              <p>
+              However, LLMs still encounter limitations in professionalism and ethical judgment in news generation. Additionally, predicting public feedback is usually difficult before news is released.
+              </p>
+              <p>
+              To tackle these challenges, we introduce AI-Press, an automated news drafting and polishing system based on multi-agent collaboration and Retrieval-Augmented Generation. 
+              We develop a feedback simulation system that generates public feedback considering demographic distributions. 
+              <!-- <i><b>knowledge & comprehension</b></i>, <i><b>application</b></i>, <i><b>analysis</b></i>, 
+              <i><b>evaluation</b></i>, and <i><b>creation</b></i>.  -->
+              <!-- SoMeLVLM is designed to understand and generate realistic social media behavior.  -->
+              <!-- We have developed a 654k multimodal social media instruction-tuning 
+              dataset to support our cognitive framework and fine-tune our model. Our experiments demonstrate that 
+              SoMeLVLM achieves state-of-the-art performance in multiple social media tasks. Further analysis shows 
+              its significant advantages over baselines in terms of cognitive abilities. -->
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- </section>
+  <section class="section"> -->
+    <br>
+    <br>
+    <div class="container is-max-desktop">
+      <!-- Method -->
+      <!-- <br /> -->
+      <div style="text-align:center">
+        <h2 class="title is-3">Our Contributions</h2>
+      </div>
+      <div class="content has-text-justified">
+        <br>
+            <p>
+              We discover three main challenges that need to be addressed to achieve full integration of LLMs into the news industry: <b>LLMs lack professionalism in drafting press releases</b>(Figure (a.1)), <b>LLMs exhibit limitations in making ethical judgments within complex news contexts</b>(Figure (b.1)), <b> 
+                Journalists struggle to accurately predict public trends following a news release</b>(Figure (c.1)). Overall, the contributions of our paper are as follows: 
+            </p>
+            <ul>
+              <li><b>Automated News Drafting and Polishing System AI-Press</b>: We develop an automated news drafting and polishing system that employs multi-agent collaboration and RAG. This system facilitates both the coarse-grained and fine-grained processing of new content.</li>
+              <li><b>True-to-Life News Feedback Simulation System</b>: We implement a true-to-life news feedback simulation system that enables customized audience demographic distributions for targeted news delivery.</li>
+              <li><b>Thorough Evaluation of AI-Press</b>: We perform a thorough evaluation of our system, incorporating both quantitative and qualitative experiments to assess the quality of the news and the effectiveness of the simulation. The overall results fully demonstrate that the AI-Press successfully overcomes the challenges and achieves impressive performance.</li>
+           </ul>
+            <!-- <p>- We propose a large vision language model specifically tailored for <i><b>social media</b></i> contexts, 
+              capable of delivering high-quality text classification and interpretation under zero-shot conditions, 
+              fundamentally simplifying the research workflow in computational social science and improving overall reliability.</p>
+            <p>- We construct a comprehensive social media framework by combining <i><b>cognitive abilities</b></i> with traditional 
+              social media tasks to support different levels of demands in information processing.</p>
+            <p>- We contribute to a large-scale, high-quality <i><b>multimodal social media dataset</b></i>, encompassing both pure text 
+              and multimodal formats, with data from both open-source and self-collected sources, formatted into diverse 
+              instruction-tuning formats.</p> -->
+        <br>
+        <br>
+  
+
+      <!-- <div style="text-align:center">
+        <h2 class="title is-3">Challenges Faced by General Domain Models</h2>
+      </div>
+      <div class="content has-text-justified">
+        <br>
+        <p><b>Limitations in social multimedia understanding</b>: General domain LLMs or LVLMs tend to focus more on text over other modalities, 
+          which is <b>not</b> consistent with real-world user habits on social media. Genereal domain large models may not possess this level 
+          of nuanced multimodal understanding, as shown in Figure (a). </p>
+        <p><b>Challenges in informal language understanding</b>: There is a huge gap between the informal speaking style prevalent on social media 
+          and the formal language used in other contexts. The example shown in Figure (b) demonstrates that the model cannot recognize the 
+          wordplay <i><b>banded</b></i> in the user's post. </p>
+        <p><b>Complex cognitive demands in social media tasks</b>: Social media tasks often involve multiple objectives to address high-level social demands.
+          For instance, the detoxifying task illustrated in Figure (c), involves both hate speech detection and content rewriting. 
+          However, the models without complex cognitive abilities struggle to comprehensively address these aspects.</p> 
+      </div> -->
+
+      <div class="columns is-centered">
+        <!-- <img style='height: auto; width: 90%; object-fit: contain' src="static/images/f2.png"
+          alt="overview_image"> -->
+          <figure>
+            <img src="static/images/f1.jpg" style="width:80%" alt="Figure 1">
+          </figure>
+      </div>
+      <br>
+      
+      <br />
+      <div style="text-align:center">
+        <h2 class="title is-3">Framework Design</h2>
+      </div>
+      <div class="content has-text-justified">
+        <br>
+        <p>
+          We design our framework for the AI-Press System according to 'news flow', which is the horizontal production process of Reuters news products. The basic steps of the work flow include <i>collection</i>, <i>processing</i>, <i>publishing</i>, and <i>feedback</i>.
+          To highlight `human-in-the-loop' in the news flow, we adopt a modularized workflow instead of an end-to-end one.
+        </p>
+        <ul>
+          <li><b>Press Drafting Module</b>: This module is designed for the collection and coarse-grained processing of news material and information.
+            We have designed two types of agents, <b>Searchers</b> and <b>Writers</b>, to assist journalists in information collection and drafting.
+          </li>
+          <li><b>Press Polishing Module</b>: This module aims to refine the initial news draft through multiple rounds of editing to achieve optimal results.
+            We design two types of agents: <b>Reviewers</b> and <b>Rewriters</b>, to collaborate and handle the fine-grained processing of press releases. 
+          </li>
+          <li><b>Simulation Module</b>: This module functions as a sandbox for news publishing and feedback. Users can customize various demographic factors of the news audience and the system automatically create a targeted audience. 
+            Upon delivering news to a targeted audience, their corresponding comments will be simulated. Subsequently, a word cloud map, sentiment scores, and a statistical analysis of stances will be presented.
+          </li>
+        </ul>
+          <!-- <p><b>Knowledge & Comprehension Level</b>: This level means to recall and understand basic facts. The instruction construction 
+            of this level consists of various <b>classification</b> tasks within the context of social media. </p>
+          <p><b>Application Level</b>: The Application level means to use the information in new situations. The instruction construction 
+            is to make accurate <b>interpretations</b> based on the given ground truth over various social media domains, implying an 
+            understanding of the reasons behind the labels. </p>
+          <p><b>Analysis Level</b>: The analysis level requires the model to analyze the label and furnish the corresponding 
+            interpretations independently. We aim for the model to offer explanations <b>in the absence of ground truth labels</b> 
+            at this level.</p>
+          <p><b>Evaluation Level</b>: At the evaluation level, we pay special attention to the existing prejudices within the data 
+            and the abnormal behavior on social media. The construction of the data is divided into two aspects: (1) we undertake 
+            detoxification or depolarization for abnormal texts. (2) we instruct the model to explain the underlying reasons for texts or 
+            text-image pairs labeled as Misinformation. </p>
+          <p><b>Creation Level</b>: The Creation level means to create reliable content related to social media. We tackle this demand 
+            by setting <b>reverse</b> and <b>creation</b> tasks. In the <b>reverse</b> task, we require the model 
+            to generate opposing viewpoints based on a specified topic and text. In the <b>create</b> task, the task is formulated 
+            as the generation of new hashtags on social media.</p> -->
+      <br>
+
+      <br />
+      <div style="text-align:center">
+        <h2 class="title is-3">Experiment</h2>
+      </div>
+      <div class="content has-text-justified">
+        <br>
+      <p>
+        We designed quantitative and qualitative experiments separately for <b>Press Generating</b> and <b>Simulation</b>
+        to verify the effectiveness of the AI-Press System.
+      </p>
+      <ul>
+        <li><b>Experiment on Press Generating</b>: We compare the press releases generated by our framework with those generated by prompt-only LLM to prove our AI-Press framework is efficient.
+          <ul>
+            <li><b>Data.</b> We use 300 press releases as our test data, including three genres: news, profile, and commentary. The summary of the test data is shown in following table. 
+              We use the abstract of the original press release as the initial material to generate press articles.
+            </li>
+            <!-- <br> -->
+            <figure>
+              <img src="static/images/table.png" style="width: 80%;" alt="Figure 2">
+            </figure>
+            <li><b>Baselines.</b> Considering the potential bias caused by different model bases, we employ <a href="https://openai.com/index/chatgpt/">GPT-3.5</a>, <a href="https://arxiv.org/abs/2303.08774">GPT-4o</a>, <a href="https://www.anthropic.com/news/claude-3-5-sonnet">Claude-3.5</a>, <a href="https://arxiv.org/abs/2403.05530">Gemini-1.5-pro</a> and <a href="https://arxiv.org/abs/2407.10671">Qwen-2.5</a> as baseline models.
+            </li>
+            <li><b>Evaluation metrics.</b> To comprehensively evaluate the quality of press releases of different genres, we design a set of evaluation metrics for three types of articles. These metrics are designed to capture the unique characteristics of each genre and quantify multiple key attributes of the articles.We choose GPT-4o as a grading assistant through specific prompts to objectively score the generated articles.
+
+            </li>
+
+          </ul>
+        </li>
+        <br>
+        <!-- <div class="container is-max-desktop"> -->
+          <!-- <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <div class="columns is-centered"> -->
+                <!-- <img style='height: auto; width: 50%; object-fit: contain' src="static/images/f1.png"
+                  alt="overview_image"> -->
+          <!-- <div style="text-align:center"> -->
+            <!-- <div class="content has-text-justified" style="width: 80%;"> -->
+              <!-- <p><i><b>Table1</b>: Experiment Press Release Introduction. </i> The types of the news article using for testing cover various fields, and the sources include internationally renowned news organizations such as <i>Reuters</i>, <i>BBC</i>, and <i>New York Times</i>.</p> -->
+            <!-- </div> -->
+          <!-- </div> -->
+        <!-- </div> -->
+        
+        <li><b>Experiment on Simulation</b>: Our expectations for the simulation are to achieve two core objectives. 
+          First, there is a significant difference in the feedback of the simulated population. 
+          Second, the behavior of the simulated population possesses realism. 
+          We designed two experiments to verify whether our simulation achieved the above objectives: <b><i style="text-decoration: underline;">Simulation Variance Experiment</i></b> and <b><i style="text-decoration: underline;">Simulation Consistency Experiment</i></b>.
+          <ul>
+            <li><b>Data.</b> We selected <i>New York Times</i> as our news source and gathered representative articles with over 100 comments in three areas: politics, economy, and conflict.
+              Additionally, we collected real user comments from these articles. To understand the distribution of the commenting group, we meticulously labeled users based on the content of their comments.
+            </li>
+            <li><b>Evaluation metrics</b></li> In <i>Simulation Variance Experiment</i>, we use GPT-4o to assess the sentiment and stance of comments from different distributions. 
+            In <i>Simulation Consistency Experiment</i>, we use GPT-4o to score the sentiment of real comments and simulated comments based on real population distribution, with a score range of [-1,1].
+          </ul>
+          <!-- <ul> -->
+            <!-- <br>
+          <b><i style="text-decoration: underline;">Simulation Variance Experiment</i></b> will verify that simulated populations with different distributions will exhibit significant differences in sentiment and stance towards the same news.
+          <br>
+          <b><i style="text-decoration: underline;">Simulation Consistency Experiment</i></b> will verify that the sentiment and stance reactions of simulated populations with the same distribution are close to those of real populations. -->
+          <!-- </ul> -->
+        </li>
+      </ul>
+      </div>
+      <br> 
+
+      <br />
+      <div style="text-align:center">
+        <h2 class="title is-3">Experiment Results</h2>
+      </div>
+
+      <div class="content has-text-justified">
+        <br>
+        <!-- <p><b>Data Split</b>:
+          We fine-tune our model using around 564k training data and evaluate our SoMeLVLM across various aspects of social media, 
+          including 14 multimodal datasets and 12 held-out plain text datasets, totaling around 89k data. 
+          </p>
+        <p><b>Evaluation Metrics</b>: For classification (CLS) tasks, we report the accuracy (Acc) of test results, which involves 
+          string matching after proper processing. For generative (GEN) tasks, we report on automatic metrics such as BLEU and ROUGE. 
+          In addition, we employ GPT-4 to evaluate the test outcomes by scoring the response on a scale from 0 to 5, where a higher 
+          score signifies greater consistency with the ground truth.
+        </p> -->
+        <!-- <b>Experiment Result Analysis</b>:  -->
+        <ul>
+          <li><b>Analysis on Press Generating Evaluation</b>: The specific evaluation metrics and scoring results are summarized in Table 1.
+            <!-- <br>
+            <br> -->
+
+            <!-- <div class="columns is-centered"> -->
+              <figure>
+                <img src="static/images/experiment1.png" alt="Figure 5">
+              </figure>
+            <!-- </div> -->
+
+          </li>
+          <br>
+          <li><b>Analysis on Simulation Evaluation</b>
+            <ul>
+              <li><b>Simulation Variance Experiment Results.</b> The sentiment tendencies and stances of people with different ideological distributions towards the same news. The distribution ratio of ideological inclinations is: Conservative: Moderate: Liberal = 1:0:0, 1:0:1, 0:0:1.
+                <figure>
+                  <img src="static/images/experiment2_1.png" style="width: 50%;" alt="Figure 5">
+                </figure>
+              </li>
+              <li><b>Simulation Consistency Experiment Results.</b> <b><i>Frequency statistics</i></b> and <b><i>kernel density estimation (KDE)</i></b> of sentiment scores for real and simulated comments. News (a) focuses on questions regarding Trump's age and capacity. News (b) delves into the challenges of offshore wind. News (c) reports on the conflict between Israel and Hezbollah.
+                <figure>
+                  <img src="static/images/experiment2_2.png" alt="Figure 5">
+                </figure>
+              </li>
+            </ul>
+
+          </li>
+        </ul>
+        <!-- <br> -->
+      </div>
+
+      <!-- <div class="columns is-centered"> -->
+        <!-- <div class="column is-full-width">
+          <div class="control has-icons-left"> -->
+            <!-- <div class="select is-medium is-info is-rounded ">  -->
+              <!-- <select id="dropdown" onchange="changeContent()" style="width:auto">
+                <option value="example_1">Results of Multimodal datasets</option>
+                <option value="example_2">Results of Plain Text datasets</option>
+              </select> -->
+              <!-- <div class="icon is-small is-left"> -->
+                <!-- <i class="fas fa-comment-alt"></i> -->
+                <!-- <i class="fas fa-table"></i> -->
+              <!-- </div> -->
+            <!-- </div> -->
+         <!-- </div> -->
+          <!--/ Dropdown -->
+
+          <!-- Content -->
+          <!-- <div id="example_1" class="content-section">
+            <br />
+            <div class="columns is-centered">
+             <img style='height: auto; width: 90%; object-fit: contain' src="static/images/table1.png"
+                alt="overview_image"> -->
+                <!-- <figure>
+                  <img src="static/images/m_cls.png" style="width:80%" alt="Figure 2">
+                </figure>
+            </div> -->
+            
+            <!-- <div class="columns is-centered"> -->
+              <!-- <img style='height: auto; width: 90%; object-fit: contain' src="static/images/table1.png"
+                alt="overview_image"> -->
+                <!-- <figure>
+                  <img src="static/images/m_gen.png" style="width:80%" alt="Figure 2">
+                </figure>
+            </div>
+          </div> -->
+
+          <!-- <div id="example_2" class="content-section"  style="display:none">
+            <br />
+            <div class="columns is-centered"> -->
+              <!-- <img style='height: auto; width: 90%; object-fit: contain' src="static/images/table1.png"
+                alt="overview_image"> -->
+                <!-- <figure>
+                  <img src="static/images/t_cls.png" style="width:80%" alt="Figure 2">
+                </figure>
+            </div> -->
+            
+            <!-- <div class="columns is-centered"> -->
+              <!-- <img style='height: auto; width: 90%; object-fit: contain' src="static/images/table1.png"
+                alt="overview_image"> -->
+                <!-- <figure>
+                  <img src="static/images/t_gen.png" style="width:80%" alt="Figure 2">
+                </figure>
+            </div> -->
+          <!-- </div>
+        </div>
+      </div>
+    </div> -->
+
+      <!-- <div class="content has-text-justified">
+        <br>
+        <p> </p>
+      <p><b>Cognitive Abilities Analysis</b>: We collect results according to the cognitive abilities mentioned in our framework. Specifically, 
+        we collect the in-domain performance of multimodal parts (using overall Acc performance) and the OOD performance 
+        of plain-text parts at the dataset level and categorize them into <i><b>Knowledge & Comprehension</b></i>, 
+        <i><b>Application</b></i>, <i><b>Analysis</b></i>, <i><b>Evaluation</b></i>, and <i><b>Creation</b></i>, five cognitive levels in total.</p>
+      </div>
+      <br>
+
+      <div class="columns is-centered">
+          <figure>
+            <img src="static/images/radar.png" style="width:90%" alt="Figure 5">
+          </figure>
+      </div> -->
+
+      <!-- <div class="content has-text-justified">
+        <br>
+        <p> </p>
+        <p>Clearly, SoMeLVLM shows greater cognitive ability over baseline models in all of the cognitive levels. 
+          At the multimodal <i><b>Creation</b></i> level, all of the models perform poorly as they are required to 
+          generate three hashtags that best describe the post, which is not an easy task even for human beings.</p>
+        <br>
+      </div>
+      <br> -->
+
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <div style="text-align:center">
+            <h2 class="title is-3">Demo</h2>
+          </div>
+          <br />
+          <!-- <div class="control has-icons-left">
+            <div class="select is-medium is-info is-rounded ", width="60%">
+              <select id="dropdown_2" onchange="changeVideo()" style="width:auto">
+                <option value="video_1">Example 1: Knowledge & Comprehension</option>
+                <option value="video_2">Example 2: Analysis</option>
+                <option value="video_3">Example 3: Creation</option>
+              </select>
+              <div class="icon is-small is-left">
+                <i class="fab fa-youtube"></i>
+              </div>
+            </div> -->
+          <!--/ Dropdown -->
+          <!-- Content -->
+          <div id="video_1" class="content-section">
+            <br />
+            <!-- <p>Analyze the emotions conveyed by images and text</p> -->
+            <div class="columns is-centered">
+              <!-- <video id="example_4" autoplay muted loop playsinline width="85%"> -->
+              <!-- <video id="example_4" autoplay muted loop playsinline width="85%">
+                <source src="./static/videos/demo.mp4" type="video/mp4">
+              </video> -->
+              <video id="example_4" controls muted loop playsinline width="85%">
+                <source src="./static/videos/demo.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+          <!-- <div id="video_2" class="content-section"  style="display:none">
+            <br />
+            <div class="columns is-centered">
+            <video id="example_5" autoplay muted loop playsinline width="80%">
+              <source src="./static/videos/demo3.mp4" type="video/mp4">
+            </video>
+          </div>
+          </div> -->
+
+          <!-- <div class="content-section">
+            <br />
+            <div class="columns is-centered">
+            <video id="example_6" autoplay muted loop playsinline width="80%">
+              <source src="./static/videos/demo.mp4" type="video/mp4">
+            </video>
+          </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+      <br />
+      <div style="text-align:center">
+        <h2 class="title is-3">Conclusion</h2>
+      </div>
+      <div class="content has-text-justified">
+        <br>
+          <p>In our work, we introduce <b>AI-Press</b>, a news auto-drafting and polishing system based on multi-agent collaboration and RAG. Furthermore, we design a public feedback simulation system for news dissemination, which can generate corresponding feedback by setting simulated population distributions.</p>
+          <p>Finally, we conduct extensive and comprehensive evaluations of both the news-generating system and the feedback simulation, including quantitative experiments based on news genres and qualitative experiments with comments' sentiments and stances as indicators. The results of both experiments fully demonstrate the effectiveness of our work.</p>
+      <br>        
+      <br>
+      <!-- <br />
+      <div style="text-align:center">
+        <h2 class="title is-3">Ethics Statement</h2>
+      </div>
+      <div class="content has-text-justified">
+        <br>
+          <p>The data used in this paper are from real users in diverse social media platforms, so the privacy problem
+             is treated cautiously. The data from opensource datasets are safe as the sensitive information has already
+              been masked. For the data we collect, we strictly follow the privacy policy of social media platforms 
+              and will carefully avoid personal information before we release our instruction dataset.</p>
+        <br>
+      <br> -->
+  </section>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-3 publication-title">Related Works about Social Media</h1>
+          <!-- <h1 class="title is-5 publication-title">(Contact: <a href="https://canyuchen.com/">Canyu Chen</a>) </h1> -->
+          <ul>
+            <div class="columns is-centered has-text-centered">
+            <!-- <div class="column is-four-fifths"> -->
+            <div class="column is-three-fourths">
+            <div class="box">
+            <div class="content has-text-justified">
+            <a href="https://arxiv.org/abs/2311.07547">GPT-4V(ision) as A Social Media Analysis Engine</a>
+            <br>
+            - Hanjia Lyu, Jinfa Huang, Daoan Zhang, Yongsheng Yu, Xinyi Mou, Jinsheng Pan, Zhengyuan Yang, Zhongyu Wei, Jiebo Luo.
+            <br>
+            <br>
+            <a href="https://arxiv.org/abs/2402.16333">Unveiling the Truth and Facilitating Change: Towards Agent-based Large-scale Social Movement Simulation</a>
+            <br>
+            - Xinyi Mou, Zhongyu Wei, Xuanjing Huang.
+            <br>
+            <br>
+            <a href="https://lrec-coling-2024.org/accepted-papers/">PASUM: A Pre-training Architecture for Social Media User Modeling based on Text Graph</a>
+            <br>
+            - Kun Wu*, Xinyi Mou*, Lanqing Xue, Zhenzhe Ying, Weiqiang Wang, Qi Zhang, Xuanjing Huang, Zhongyu Wei.
+            <br>
+            <br>
+            <a href="https://www2024.thewebconf.org/accepted/research-tracks/">Unifying Local and Global Knowledge: Empowering Large Language Models as Political Experts with Knowledge Graphs</a>
+            <br>
+            - Xinyi Mou, Zejun Li, Hanjia Lyu, Jiebo Luo, Zhongyu Wei.
+            <br>
+            <br>
+            <a href="https://aclanthology.org/2021.acl-long.99/">Align Voting Behavior with Public Statements for Legislator Representation Learning</a>
+            <br>
+            - Xinyi Mou, Zhongyu Wei, Lei Chen, Shangyi Ning, Yancheng He, Changjian Jiang, Xuanjing Huang.
+            </div>
+            </div>
+            </div>
+            </div>
+          </ul>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{zhang2024somelvlm,
+      author = {Xinnong Zhang and Haoyu Kuang and Xinyi Mou and Hanjia Lyu and Kun Wu and Siming Chen and Jiebo Luo and Xuanjing Huang and Zhongyu Wei},
+      title = {SoMeLVLM: A Large Vision Language Model for Social Media Processing},
+      year = {2024},
+      journal = {arXiv preprint arXiv: 2402.13022}
+    }</code></pre>
+  </div>
+</section>
+
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+              Please remember to remove the analytics code included in the header of the website which
+              you do not want on your website.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  function changeContent() {
+    const dropdown = document.getElementById("dropdown");
+    const selected = dropdown.value;
+    const sections = ["example_1", "example_2"];
+
+    sections.forEach((section) => {
+      document.getElementById(section).style.display = (section === selected) ? "block" : "none";
+    });
+  }
+</script>
+
+<script>
+  function changeVideo() {
+    const dropdown = document.getElementById("dropdown_2");
+    const selected = dropdown.value;
+    const sections = ["video_1", "video_2", "video_3"];
+    sections.forEach((section) => {
+      document.getElementById(section).style.display = (section === selected) ? "block" : "none";
+    });
+  }
+</script>
+
+</html>
